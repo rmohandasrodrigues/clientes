@@ -32,7 +32,7 @@ def generate_token(cliente: Cliente):
     try:
         access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
         access_token = create_access_token(
-            data={"sub": cliente.client_id}, expires_delta=access_token_expires
+            data={"sub": cliente.cliente_id}, expires_delta=access_token_expires
         )
         return {"access_token": access_token, "token_type": "bearer"}
     except JWTError:
