@@ -1,4 +1,4 @@
-ROM python:3.8-slim
+FROM python:3.8-slim
 
 # Defina o diretório de trabalho para o aplicativo Flask
 WORKDIR /app/flask_app

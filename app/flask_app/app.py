@@ -5,7 +5,7 @@ import uuid
 app = Flask(__name__)
 clientes = []
 
-@app.route('/clientes', methods=['POST'])
+@app.route('/clientes/', methods=['POST'])
 def cadastrar_clientes():
     data = request.json
     cliente_id = str(uuid.uuid4())
@@ -16,7 +16,7 @@ def cadastrar_clientes():
         'cliente_id': cliente_id,
         'cliente_secret': cliente_secret,
         'nome': data['nome'],
-        'andereco': data['andereco'],
+        'endereco': data['endereco'],
         'email': data['email'],
         'data_inclusao': data_inclusao
     }
@@ -25,7 +25,7 @@ def cadastrar_clientes():
     return jsonify(cliente), 201
 
 
-@app.route('/clientes', methods=['GET'])
+@app.route('/clientes/', methods=['GET'])
 def listar_clientes():
     return jsonify(clientes), 200
 
