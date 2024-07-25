@@ -21,4 +21,4 @@ RUN pip install -r /app/fastapi_app/requirements.txt
 COPY app/fastapi_app/ /app/fastapi_app/
 
 # Inicie os aplicativos Flask e FastAPI
-CMD ["sh", "-c", "python /app/flask_app/app.py & uvicorn main:app --host 0.0.0.0 --port 8009"]
+CMD ["sh", "-c", "python /app/flask_app/app.py & uvicorn main:app --host 0.0.0.0 --port 8000"]
