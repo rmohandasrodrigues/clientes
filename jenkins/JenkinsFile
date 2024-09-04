@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Realiza o checkout do repositório contendo os scripts Python
-                git 'https://github.com/rmohandasrodrigues/clientes.git'
+                // Realiza o checkout de um branch específico
+                git branch: 'dev', url: 'https://github.com/rmohandasrodrigues/clientes.git'
             }
         }
 
@@ -16,26 +16,7 @@ pipeline {
             }
         }
 
-        stage('Install Python Packages') {
-            steps {
-                // Comando de exemplo - mudando de diretório
-                sh 'cd /'
-            }
-        }
-
-        stage('Run Extraction Script') {
-            steps {
-                // Corrige erro de digitação em "mkdir" e o nome do diretório
-                sh 'mkdir meu_pal'
-            }
-        }
-
-        stage('Send to Kafka') {
-            steps {
-                // Corrige erro de digitação em "mkdir" e o nome do diretório
-                sh 'mkdir tomar_no_cu'
-            }
-        }
+        // Outros estágios...
     }
 
     post {
