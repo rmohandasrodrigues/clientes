@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Atualiza os pacotes e instala o Python3
-                sh 'apt-get update && apt-get install -y python3'
+                sh 'ls'
             }
         }
 
