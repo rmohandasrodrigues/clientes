@@ -17,8 +17,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Instale as dependências necessárias (se houver um requirements.txt)
-                sh 'apt-get update',
-                sh 'apt-get install python3'
+                sh 'apt-get update' & sh 'apt-get install python3'
            }
         }
 
