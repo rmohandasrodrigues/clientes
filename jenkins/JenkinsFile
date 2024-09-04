@@ -1,54 +1,50 @@
 pipeline {
     agent any
 
-//     environment {
-//         // Define o caminho para o Python, se necessário
-//         PYTHON_ENV = "/path/to/python"
-//     }
-
     stages {
         stage('Checkout') {
             steps {
-                // Faça o checkout do repositório contendo os scripts Python
+                // Realiza o checkout do repositório contendo os scripts Python
                 git 'https://github.com/rmohandasrodrigues/clientes.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Instale as dependências necessárias (se houver um requirements.txt)
-                sh 'apt-get update' & sh 'apt-get install python3'
-           }
+                // Atualiza os pacotes e instala o Python3
+                sh 'apt-get update && apt-get install -y python3'
+            }
         }
 
-//         stage('Install Dependencies') {
-//             steps {
-//                 // Instale as dependências necessárias (se houver um requirements.txt)
-//                 sh '${PYTHON_ENV} -m pip install -r requirements.txt'
-//             }
-//         }
+        stage('Install Python Packages') {
+            steps {
+                // Instala as dependências do Python a partir de requirements.txt, se necessário
+                //sh 'python3 -m pip install -r requirements.txt'
+            }
+        }
 
-//         stage('Run Extraction Script') {
-//             steps {
-//                 // Execute o script de extração
-//                 sh '${PYTHON_ENV} extracao.py'
-//             }
-//         }
+        stage('Run Extraction Script') {
+            steps {
+                // Executa o script de extração
+                //sh 'python3 extracao.py'
+            }
+        }
 
-//         stage('Send to Kafka') {
-//             steps {
-//                 // Execute o script que envia para o Apache Kafka
-//                 sh '${PYTHON_ENV} kafka_producer.py'
-//             }
-//         }
-//     }
+        stage('Send to Kafka') {
+            steps {
+                // Executa o script que envia para o Apache Kafka
+                //sh 'python3 kafka_producer.py'
+            }
+        }
+    }
 
-//     post {
-//         success {
-//             echo 'Pipeline executado com sucesso!'
-//         }
-//         failure {
-//             echo 'Pipeline falhou!'
-//         }
-//     }
+    post {
+        success {
+            echo 'Pipeline executado com sucesso!'
+        }
+        failure {
+            echo 'Pipeline falhou!'
+        }
+    }
 }
+
