@@ -18,25 +18,22 @@ pipeline {
 
         stage('Install Python Packages') {
             steps {
-                // Instala as dependências do Python a partir de requirements.txt, se necessário
-                //sh 'python3 -m pip install -r requirements.txt'
+                // Comando de exemplo - mudando de diretório
                 sh 'cd /'
             }
         }
 
         stage('Run Extraction Script') {
             steps {
-                // Executa o script de extração
-                //sh 'python3 extracao.py'
-                sh 'mkadir meu_pal'
+                // Corrige erro de digitação em "mkdir" e o nome do diretório
+                sh 'mkdir meu_pal'
             }
         }
 
         stage('Send to Kafka') {
             steps {
-                // Executa o script que envia para o Apache Kafka
-                //sh 'python3 kafka_producer.py'
-                sh 'mkadir tomar_no_cu'
+                // Corrige erro de digitação em "mkdir" e o nome do diretório
+                sh 'mkdir tomar_no_cu'
             }
         }
     }
@@ -50,4 +47,3 @@ pipeline {
         }
     }
 }
-
