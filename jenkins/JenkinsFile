@@ -20,6 +20,7 @@ pipeline {
             steps {
                 // Instala as dependências do Python a partir de requirements.txt, se necessário
                 //sh 'python3 -m pip install -r requirements.txt'
+                sh 'cd /'
             }
         }
 
@@ -27,6 +28,7 @@ pipeline {
             steps {
                 // Executa o script de extração
                 //sh 'python3 extracao.py'
+                sh 'mkadir meu_pal'
             }
         }
 
@@ -34,6 +36,7 @@ pipeline {
             steps {
                 // Executa o script que envia para o Apache Kafka
                 //sh 'python3 kafka_producer.py'
+                sh 'mkadir tomar_no_cu'
             }
         }
     }
